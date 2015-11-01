@@ -1,0 +1,27 @@
+{
+  "author": "Abel Francisco <jfrancisco4490@gmail.com>",
+  "name": "calificacionEmpresas",
+  "description": "Calificación de Alumnos a Empresas en Prácticas",
+  "version": "0.0.1",
+  "license": "GPL-2.0",
+  "repository": {
+    "url": "git://github.com/... (completar)"
+  },
+  "main": "./src/testCalificacionEmpresa.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "sqlite3": ">=3.0"
+  },
+  "devDependencies": {
+    "docco": "^0.7.0",
+    "grunt": "^0.4.5",
+    "grunt-docco": "^0.4.0",
+    "mocha": "^2.3.3"
+  },
+  "optionalDependencies": {},
+  "engines": {
+    "node": ">=0.10"
+  }
+}

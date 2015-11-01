@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>testCalificacionEmpresa.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page_wrapper">
+            <div id="jump_page">
+              
+                
+                <a class="source" href="assertsCalificacionEmpresa.html">
+                  assertsCalificacionEmpresa.js
+                </a>
+              
+                
+                <a class="source" href="libCalificacionEmpresa.html">
+                  libCalificacionEmpresa.js
+                </a>
+              
+                
+                <a class="source" href="testCalificacionEmpresa.html">
+                  testCalificacionEmpresa.js
+                </a>
+              
+                
+                <a class="source" href="test.html">
+                  test.js
+                </a>
+              
+            </div>
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>testCalificacionEmpresa.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              <h2 id="programa-de-prueba-para-utilizar-operaciones-de-calificaci-n-de-empresas">Programa de Prueba para utilizar operaciones de calificación de empresas</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p><strong>Autor:</strong> Abel Josué Francisco Agra
+<strong>Versión:</strong> <em>1.0</em></p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>El presente programa permite ejecutar algunas funcionalidades de la librería de calificaciones
+de empresas por parte de estudiantes que realizaron prácticas en éstas (libCalificacionEmpresa.js).
+En este programa de prueba se invocan, al menos una vez, todas las funciones de dicha librería,
+tanto en casos exitosos, como en casos de error, en base a las especificaciones del problema.
+Los resultados y estado de la ejecución se presentan en la consola o terminal de comandos en
+las que se ejecute el programa.</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Requiere la instalación del manejador de base de datos <em>sqlite3</em>, y una versión de <em>node.js</em>
+superior a <em>0.10</em>. Aún así, dada su dependencia de <em>sqlite3</em>, este programa no puede ejecutarse
+para versiones inestables de <em>node.js</em>, como las versiones del orden <em>0.11</em>.</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>El presente programa constituye un ejercicio para la asignatura de Cloud Computing (CC),
+en el marco del Máster en Ingeniería Informática de la Universidad de Granada</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Cargar módulo de <em>sqlite3</em></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> sqlite3 = <span class="hljs-built_in">require</span>(<span class="hljs-string">'sqlite3'</span>).verbose();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Cargar archivo de base de datos con los datos de prueba</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> db = <span class="hljs-keyword">new</span> sqlite3.Database(<span class="hljs-string">'../db/CC_calificacionEmpresa.db'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Cargar libreria de funciones de calificación de empresas</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> libCalif = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./lib/libCalificacionEmpresa.js'</span>);
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"[INFO] Iniciando Ejecucion de Pruebas!!!"</span>);
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">""</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Realizar pruebas sobre posibles funciones de la libreria</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>Pruebas sobre registro de nuevas empresas</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(<span class="hljs-string">"[INFO] Prueba de Creacion de Empresa..."</span>);
+
+libCalif.crearEmpresa(db, <span class="hljs-string">'EmpTest'</span>,<span class="hljs-string">'EmpresaTest'</span>, <span class="hljs-string">'DireccionTest'</span>, <span class="hljs-string">'AreaTest'</span>);
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"[INFO] Finalizada con exito!!!"</span>);
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">""</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>Definir calificaciones de usuarios a empresas</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(<span class="hljs-string">"[INFO] Prueba de Registro de calificaciones validas..."</span>);
+
+libCalif.crearCalificacion(db, <span class="hljs-string">'Emp1'</span>, <span class="hljs-string">'Usr1'</span>, <span class="hljs-number">3</span>);
+libCalif.crearCalificacion(db, <span class="hljs-string">'Emp2'</span>, <span class="hljs-string">'Usr1'</span>, <span class="hljs-number">2</span>);
+libCalif.crearCalificacion(db, <span class="hljs-string">'Emp3'</span>, <span class="hljs-string">'Usr1'</span>, <span class="hljs-number">5</span>);
+libCalif.crearCalificacion(db, <span class="hljs-string">'EmpTest'</span>, <span class="hljs-string">'Usr1'</span>, <span class="hljs-number">4</span>);
+
+libCalif.crearCalificacion(db, <span class="hljs-string">'Emp1'</span>, <span class="hljs-string">'Usr2'</span>, <span class="hljs-number">1</span>);
+libCalif.crearCalificacion(db, <span class="hljs-string">'Emp2'</span>, <span class="hljs-string">'Usr2'</span>, <span class="hljs-number">1</span>);
+libCalif.crearCalificacion(db, <span class="hljs-string">'Emp3'</span>, <span class="hljs-string">'Usr2'</span>, <span class="hljs-number">2</span>);
+libCalif.crearCalificacion(db, <span class="hljs-string">'EmpTest'</span>, <span class="hljs-string">'Usr2'</span>, <span class="hljs-number">5</span>);
+
+libCalif.crearCalificacion(db, <span class="hljs-string">'Emp1'</span>, <span class="hljs-string">'Usr3'</span>, <span class="hljs-number">2</span>);
+libCalif.crearCalificacion(db, <span class="hljs-string">'Emp2'</span>, <span class="hljs-string">'Usr3'</span>, <span class="hljs-number">4</span>);
+libCalif.crearCalificacion(db, <span class="hljs-string">'Emp3'</span>, <span class="hljs-string">'Usr3'</span>, <span class="hljs-number">5</span>);
+libCalif.crearCalificacion(db, <span class="hljs-string">'EmpTest'</span>, <span class="hljs-string">'Usr3'</span>, <span class="hljs-number">1</span>);
+
+libCalif.crearCalificacion(db, <span class="hljs-string">'Emp1'</span>, <span class="hljs-string">'UsrTest'</span>, <span class="hljs-number">5</span>);
+libCalif.crearCalificacion(db, <span class="hljs-string">'Emp2'</span>, <span class="hljs-string">'UsrTest'</span>, <span class="hljs-number">5</span>);
+libCalif.crearCalificacion(db, <span class="hljs-string">'Emp3'</span>, <span class="hljs-string">'UsrTest'</span>, <span class="hljs-number">4</span>);
+libCalif.crearCalificacion(db, <span class="hljs-string">'EmpTest'</span>, <span class="hljs-string">'UsrTest'</span>, <span class="hljs-number">3</span>);
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"[INFO] Finalizada con exito!!!"</span>);
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">""</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>Eliminar valoraciones registradas</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(<span class="hljs-string">"[INFO] Prueba de Eliminacion de calificaciones..."</span>);
+
+libCalif.eliminarCalificacion(db, <span class="hljs-string">'EmpTest'</span>, <span class="hljs-string">'UsrTest'</span>);
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"[INFO] Finalizada con exito!!!"</span>);
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">""</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>Presentar listado de calificaciones registradas para cada empresa</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(<span class="hljs-string">"[INFO] Prueba de Listado de calificaciones por empresa..."</span>);
+
+libCalif.listarCalificaciones(db, <span class="hljs-string">'Emp1'</span>);
+
+libCalif.listarCalificaciones(db, <span class="hljs-string">'Emp2'</span>);
+
+libCalif.listarCalificaciones(db, <span class="hljs-string">'Emp3'</span>);
+
+libCalif.listarCalificaciones(db, <span class="hljs-string">'EmpTest'</span>);
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">""</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>Mostrar ránking actual de empresas (según el promedio de sus calificaciones)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(<span class="hljs-string">"[INFO] Prueba de Ranking de empresas..."</span>);
+
+libCalif.ranking(db);
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"[INFO] Finalizada con exito!!!"</span>);
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">""</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>Intentar registro de calificaciones duplicadas (un usuario intenta valorar 
+a una empresa a la cual ya había calificado previamente)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(<span class="hljs-string">"[INFO] Prueba de Registro de calificaciones duplicadas..."</span>);
+
+libCalif.crearCalificacion(db, <span class="hljs-string">'EmpTest'</span>, <span class="hljs-string">'Usr1'</span>, <span class="hljs-number">4</span>);
+libCalif.crearCalificacion(db, <span class="hljs-string">'EmpTest'</span>, <span class="hljs-string">'Usr2'</span>, <span class="hljs-number">5</span>);
+libCalif.crearCalificacion(db, <span class="hljs-string">'EmpTest'</span>, <span class="hljs-string">'Usr3'</span>, <span class="hljs-number">1</span>);
+libCalif.crearCalificacion(db, <span class="hljs-string">'EmpTest'</span>, <span class="hljs-string">'UsrTest'</span>, <span class="hljs-number">3</span>);
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"[INFO] Finalizada con exito!!!"</span>);
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">""</span>);
+
+db.close();
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"[INFO] Terminando Ejecucion de Pruebas!!!"</span>);</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

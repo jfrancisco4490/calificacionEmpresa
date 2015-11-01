@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>libCalificacionEmpresa.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page_wrapper">
+            <div id="jump_page">
+              
+                
+                <a class="source" href="assertsCalificacionEmpresa.html">
+                  assertsCalificacionEmpresa.js
+                </a>
+              
+                
+                <a class="source" href="libCalificacionEmpresa.html">
+                  libCalificacionEmpresa.js
+                </a>
+              
+                
+                <a class="source" href="testCalificacionEmpresa.html">
+                  testCalificacionEmpresa.js
+                </a>
+              
+                
+                <a class="source" href="test.html">
+                  test.js
+                </a>
+              
+            </div>
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>libCalificacionEmpresa.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              <h2 id="librer-a-para-realizar-operaciones-de-calificaci-n-de-empresas">Librería para realizar operaciones de calificación de empresas</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p><strong>Autor:</strong> Abel Josué Francisco Agra
+<strong>Versión:</strong> <em>1.0</em></p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>La presente librería incluye diversas funcionalidades que permiten asociar
+calificaciones o valoraciones numéricas a las empresas que ofertan prácticas a 
+estudiantes. Las calificaciones, en principio, las realizan estudiantes que
+han desarrollado prácticas profesionales en dichas instituciones.</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>La valoración se realiza del uno (1) al cinco (5). Siendo uno (1) la calificación
+mínima (pero experiencia profesional durante las prácticas) y cinco (5) la máxima
+(excelente experiencia profesional).</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>La presente librería constituye un ejercicio para la asignatura de Cloud Computing (CC),
+en el marco del Máster en Ingeniería Informática de la Universidad de Granada</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-built_in">module</span>.exports = {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Permite el registro de una nueva empresa o institución
+<strong>Parámetros de Entrada:</strong></p>
+<ul>
+<li><strong>in_db</strong>: identificador de la conexión a la base de datos</li>
+<li><strong>in_id</strong>: identificador de la empresa (único)</li>
+<li><strong>in_nombre</strong>: nombre completo de la intitución</li>
+<li><strong>in_direc</strong>: ubicación de la sede principal de la compañía</li>
+<li><strong>in_area</strong>: tipo de actividades a la que se dedica la empresa
+<strong>Salida:</strong> <em>true</em> si el registro de la nueva empresa se ejecutó correctamente, <em>false</em> si no</li>
+</ul>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>	crearEmpresa : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">in_db, in_id,in_nombre,in_direc,in_area</span>)</span>{
+		in_db.run(<span class="hljs-string">"INSERT INTO EMPRESA(identificador, nombre, direccion, area) VALUES ('"</span>+in_id+<span class="hljs-string">"','"</span>+in_nombre+<span class="hljs-string">"','"</span>+in_direc+<span class="hljs-string">"','"</span>+in_area+<span class="hljs-string">"')"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>{
+		
+			<span class="hljs-keyword">if</span>(err){</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Mostrar Error Completo</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>				<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"[ERR] Informacion completa del Error:"</span>);
+				<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"   [SYS] "</span> + err.message);
+				<span class="hljs-built_in">console</span>.log(<span class="hljs-string">""</span>);
+				<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+			}
+		});
+		
+		<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+	},</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Ordenar las empresas registradas según su valoración o calificaciones promedio.
+El orden se realiza de mayor a menor
+<strong>Parámetros de Entrada:</strong></p>
+<ul>
+<li><strong>in_db</strong>: identificador de la conexión a la base de datos</li>
+</ul>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>	ranking : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">in_db</span>)</span>{
+	
+		<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"[RES] Ranking de Empresas: "</span>);
+		in_db.each(<span class="hljs-string">"SELECT E.identificador AS identificador, E.nombre AS nombre, E.direccion AS direccion, E.area AS area, AVG(C.valor) media FROM EMPRESA E, CALIFICACION C WHERE E.identificador = C.identificador GROUP BY C.identificador ORDER BY media DESC"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,row</span>)</span>{
+		
+			<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"      [RES] Id: '"</span>+row.identificador+<span class="hljs-string">"', Nombre: '"</span>+row.nombre+<span class="hljs-string">"', Direccion: '"</span>+row.direccion+<span class="hljs-string">"', Area: '"</span>+row.area+<span class="hljs-string">"', Media: "</span>+row.media);
+			
+		});
+		<span class="hljs-built_in">console</span>.log(<span class="hljs-string">""</span>);
+	},</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Mostrar las calificaciones registradas para una determinada empresa o institución
+<strong>Parámetros de Entrada:</strong></p>
+<ul>
+<li><strong>in_db</strong>: identificador de la conexión a la base de datos</li>
+<li><strong>in_id</strong>: identificador de la empresa a consultar sus calificaciones</li>
+</ul>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>	listarCalificaciones : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">in_db, in_id</span>)</span>{
+		in_db.each(<span class="hljs-string">"SELECT usuario AS usuario, valor AS calificacion FROM CALIFICACION WHERE identificador = '"</span> + in_id +<span class="hljs-string">"' ORDER BY usuario"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, row</span>)</span>{
+		
+			<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"[RES] Empresa: '"</span> + in_id);
+			<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"[RES] Usuario: '"</span> + row.usuario + <span class="hljs-string">"' - Calificacion: "</span> + row.calificacion);
+		
+		});
+		
+		<span class="hljs-built_in">console</span>.log(<span class="hljs-string">""</span>);
+	},</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>Registrar nueva calificacion o valoración de un usuario (estudiante) a una empresa
+<strong>Parámetros de Entrada:</strong></p>
+<ul>
+<li><strong>in_db</strong>: identificador de la conexión a la base de datos</li>
+<li><strong>in_id</strong>: identificador de la empresa a calificar</li>
+<li><strong>in_usr</strong>: nombre de usuario del estudiante que realiza la valoración</li>
+<li><strong>in_valor</strong>: calificación numérica (1 a 5) para la empresa
+<strong>Salida:</strong> <em>true</em> si el registro de la nueva calificación se ejecutó correctamente, <em>false</em> si no</li>
+</ul>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>	crearCalificacion : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">in_db, in_id, in_usr, in_valor</span>)</span>{
+ 
+		in_db.run(<span class="hljs-string">"INSERT INTO CALIFICACION(identificador, usuario, valor) VALUES ('"</span>+in_id+<span class="hljs-string">"','"</span>+in_usr+<span class="hljs-string">"','"</span>+in_valor+<span class="hljs-string">"')"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>Verificar si el alumno ya ha dejado calificacion para dicha empresa                </p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>			<span class="hljs-keyword">if</span>(err){
+				<span class="hljs-keyword">if</span>(err.message.indexOf(<span class="hljs-string">"SQLITE_CONSTRAINT: UNIQUE"</span>) &gt; -<span class="hljs-number">1</span> &amp;&amp;
+				   err.message.indexOf(<span class="hljs-string">"CALIFICACION.usuario, CALIFICACION.identificador"</span>) &gt; -<span class="hljs-number">1</span>){</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>Mostrar Error Personalizado</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>					<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"[ERR] El usuario '"</span>+in_usr+<span class="hljs-string">"' ya ha registrado una calificacion para la empresa '"</span>+in_id+<span class="hljs-string">"'"</span>);
+				}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>Mostrar Error Completo</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>				<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"[ERR] Informacion completa del Error:"</span>);
+				<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"   [SYS] "</span> + err.message);
+				<span class="hljs-built_in">console</span>.log(<span class="hljs-string">""</span>);
+				
+				<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+			}
+		});
+		
+		<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+	},</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>Eliminar calificación particular asociada a una empresa o institución
+<strong>Parámetros de Entrada:</strong></p>
+<ul>
+<li><strong>in_db</strong>: identificador de la conexión a la base de datos</li>
+<li><strong>in_id</strong>: identificador de la empresa a eliminar su calificación</li>
+<li><strong>in_usr</strong>: nombre de usuario del estudiante que realizó la valoración a eliminar
+<strong>Salida:</strong> <em>true</em> si la eliminación de la calificación se ejecutó correctamente</li>
+</ul>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>	eliminarCalificacion : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">in_db, in_id, in_usr</span>)</span>{
+		in_db.run(<span class="hljs-string">"DELETE FROM CALIFICACION WHERE identificador = '"</span>+ in_id + <span class="hljs-string">"' AND usuario = '"</span> + in_usr + <span class="hljs-string">"'"</span>);
+		
+		<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+	}
+};</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>
