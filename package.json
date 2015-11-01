@@ -5,7 +5,7 @@
   "version": "0.0.1",
   "license": "GPL-2.0",
   "repository": {
-    "url": "git://github.com/... (completar)"
+    "url": "git://github.com/jfrancisco4490/calificacionEmpresa.git"
   },
   "main": "./src/testCalificacionEmpresa.js",
   "scripts": {
