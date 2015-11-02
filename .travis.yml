@@ -3,8 +3,11 @@ node_js:
     - "0.10"
     - "0.12"
     - "4.0"
-#before_install:
-#    - npm install -g mocha
-#    - cd src; npm install .
+before_install:
+    - cd db
+    - sqlite3 CC_calificacionEmpresa.db
+    - .read creacionTablasBD.sql
+    - .quit
+    - cd ..
 #script: 
 #    - cd src; npm test
