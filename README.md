@@ -1,6 +1,8 @@
 # calificacionEmpresa
 Programa de calificación de empresas o instituciones por parte de alumnos u otros usuarios
 
+[![Build Status](https://travis-ci.org/jfrancisco4490/calificacionEmpresa.svg?branch=master)](https://travis-ci.org/jfrancisco4490/calificacionEmpresa)
+
 **Elaborado por:** Abel Josué Francisco Agra
 
 La presente librería incluye diversas funcionalidades que permiten asociar calificaciones o valoraciones numéricas a las empresas que ofertan prácticas a estudiantes. 
