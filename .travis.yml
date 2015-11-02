@@ -5,9 +5,7 @@ node_js:
     - "4.0"
 before_install:
     - cd db
-    - sqlite3 CC_calificacionEmpresa.db
-    - .read creacionTablasBD.sql
-    - .quit
+    - sqlite3 CC_calificacionEmpresa.db < creacionTablasBD.sql
     - cd ..
 #script: 
 #    - cd src; npm test
